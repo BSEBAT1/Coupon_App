@@ -1,0 +1,49 @@
+//
+//  Coupon.m
+//  CouponME!
+//
+//  Created by macbook pro on 7/18/16.
+//  Copyright © 2016 berkaysebat.com.trivia. All rights reserved.
+//
+
+#import "Coupon.h"
+
+@interface Coupon ()
+@property (strong, nonatomic) IBOutlet UITextField *Barcode;
+@property (strong, nonatomic) IBOutlet UITextField *Exp_date;
+@property (strong, nonatomic) IBOutlet UITextField *Product;
+@property (strong, nonatomic) IBOutlet UITextField *Categrory;
+
+
+
+@end
+
+@implementation Coupon
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    
+    self.Barcode.text=self.barcodes;
+    self.Exp_date.text=self.exp_dates;
+    self.Product.text=self.products;
+    self.Categrory.text=self.categrories;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end
