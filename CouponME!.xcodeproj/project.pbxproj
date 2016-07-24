@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		521FFA281D38776C00A9D211 /* ScanClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 521FFA271D38776C00A9D211 /* ScanClass.m */; };
+		52914EE71D43CEF2000C8C0E /* Coupon_Data+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 52914EE41D43CEF2000C8C0E /* Coupon_Data+CoreDataProperties.m */; };
+		52914EE81D43CEF2000C8C0E /* Coupon_Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 52914EE61D43CEF2000C8C0E /* Coupon_Data.m */; };
 		52D730771D3DC7C0005CC5F1 /* Coupon.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D730761D3DC7C0005CC5F1 /* Coupon.m */; };
 		52DBF4F71D347D5D00D6D8FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DBF4F61D347D5D00D6D8FA /* main.m */; };
 		52DBF4FA1D347D5D00D6D8FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DBF4F91D347D5D00D6D8FA /* AppDelegate.m */; };
@@ -21,6 +23,10 @@
 /* Begin PBXFileReference section */
 		521FFA261D38776C00A9D211 /* ScanClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScanClass.h; path = ../ScanClass.h; sourceTree = "<group>"; };
 		521FFA271D38776C00A9D211 /* ScanClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScanClass.m; path = ../ScanClass.m; sourceTree = "<group>"; };
+		52914EE31D43CEF2000C8C0E /* Coupon_Data+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Coupon_Data+CoreDataProperties.h"; sourceTree = "<group>"; };
+		52914EE41D43CEF2000C8C0E /* Coupon_Data+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Coupon_Data+CoreDataProperties.m"; sourceTree = "<group>"; };
+		52914EE51D43CEF2000C8C0E /* Coupon_Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coupon_Data.h; sourceTree = "<group>"; };
+		52914EE61D43CEF2000C8C0E /* Coupon_Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coupon_Data.m; sourceTree = "<group>"; };
 		52D730751D3DC7C0005CC5F1 /* Coupon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coupon.h; sourceTree = "<group>"; };
 		52D730761D3DC7C0005CC5F1 /* Coupon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coupon.m; sourceTree = "<group>"; };
 		52DBF4F21D347D5D00D6D8FA /* CouponME!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CouponME!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +56,10 @@
 		52DBF4E91D347D5D00D6D8FA = {
 			isa = PBXGroup;
 			children = (
+				52914EE31D43CEF2000C8C0E /* Coupon_Data+CoreDataProperties.h */,
+				52914EE41D43CEF2000C8C0E /* Coupon_Data+CoreDataProperties.m */,
+				52914EE51D43CEF2000C8C0E /* Coupon_Data.h */,
+				52914EE61D43CEF2000C8C0E /* Coupon_Data.m */,
 				52DBF4F41D347D5D00D6D8FA /* CouponME! */,
 				52DBF4F31D347D5D00D6D8FA /* Products */,
 			);
@@ -167,7 +177,9 @@
 				52DBF4FA1D347D5D00D6D8FA /* AppDelegate.m in Sources */,
 				52D730771D3DC7C0005CC5F1 /* Coupon.m in Sources */,
 				52DBF4F71D347D5D00D6D8FA /* main.m in Sources */,
+				52914EE81D43CEF2000C8C0E /* Coupon_Data.m in Sources */,
 				52DBF5031D347D5D00D6D8FA /* CouponME_.xcdatamodeld in Sources */,
+				52914EE71D43CEF2000C8C0E /* Coupon_Data+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

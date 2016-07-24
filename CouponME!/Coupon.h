@@ -13,5 +13,6 @@
 @property NSString *exp_dates;
 @property NSString *products;
 @property NSString *categrories;
+@property NSManagedObjectContext *context;
 
 @end

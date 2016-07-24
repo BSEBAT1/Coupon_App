@@ -10,6 +10,6 @@
 
 @interface ScanClass : ViewController
 @property NSDictionary *dictonary;
-@property BOOL DATA_Recieved;
+
 
 @end

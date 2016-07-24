@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "Coupon.h"
 @interface ScanClass () <AVCaptureMetadataOutputObjectsDelegate>
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *Spinner;
 @property (strong, nonatomic) IBOutlet UIView *ScanCameraPreview;
 @property (nonatomic,strong) NSString *barcode;
 @property (nonatomic, strong) AVCaptureSession *captureSession;
@@ -28,11 +29,13 @@
     UIBarButtonItem *buttonizeButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleDone target:self action:@selector(buttonizeButtonTap:)];
     self.navigationItem.rightBarButtonItems = @[buttonizeButton];
     [self setupScanningSession];
+    self.Spinner.hidesWhenStopped=YES;
     
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self.captureSession startRunning];
+    
     
     
 }
@@ -113,6 +116,8 @@
                 dispatch_sync(dispatch_get_main_queue(), ^{
                     [self.captureSession stopRunning];
                     self.barcode = capturedBarcode;
+                    NSLog(@"barcode is %@",self.barcode);
+                    NSLog(@"captured barcode is %@",capturedBarcode);
                     [self post];
                 });
                 return;
@@ -125,7 +130,7 @@
 }
 -(void)post{
     
-   
+    [self.Spinner startAnimating];
     
     NSString *noteDataString=[NSString stringWithFormat:@"UPC=%@",self.barcode];
     
@@ -150,15 +155,20 @@
         NSLog(@"the first object is%@",[self.dictonary objectForKey:@"upc_code"]);
         
         if (!parseError) {
-          [self buttonizeButtonTap:self];  
+            [self.Spinner stopAnimating];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self buttonizeButtonTap:self]; 
+            });
+          
             
             NSLog(@"no error");
-            self.DATA_Recieved=YES;
+           
             
         } else {
+            [self.Spinner stopAnimating];
             NSString *err = [parseError localizedDescription];
             NSLog(@"Encountered error parsing: %@", err);
-            self.DATA_Recieved=NO;
+            
             
         }
 
@@ -186,15 +196,16 @@
     
         NSString *donkey=[self.dictonary objectForKey:@"upc_code"];
         NSLog(@"donkey vaue is %@",donkey);
-        
+    
+     
         Coupon *Coupon=[segue destinationViewController];
         [Coupon setBarcodes:[self.dictonary objectForKey:@"upc_code"]];
         [Coupon setCategrories:[self.dictonary objectForKey:@"category"]];
         [Coupon setProducts:[self.dictonary objectForKey:@"product"]];
         [Coupon setExp_dates:[self.dictonary objectForKey:@"exp_date"]];
         
-        
-        
+     
+    
    
     
     

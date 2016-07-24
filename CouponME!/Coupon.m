@@ -7,18 +7,29 @@
 //
 
 #import "Coupon.h"
+#import "Coupon_Data.h"
+#import <CoreData/CoreData.h>
+#import "AppDelegate.h"
 
 @interface Coupon ()
 @property (strong, nonatomic) IBOutlet UITextField *Barcode;
 @property (strong, nonatomic) IBOutlet UITextField *Exp_date;
 @property (strong, nonatomic) IBOutlet UITextField *Product;
 @property (strong, nonatomic) IBOutlet UITextField *Categrory;
+@property (strong, nonatomic) IBOutlet UIButton *Save;
 
 
 
 @end
 
 @implementation Coupon
+- (IBAction)Save_Coupon:(id)sender {
+    
+    
+    
+    
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,6 +40,10 @@
     self.Exp_date.text=self.exp_dates;
     self.Product.text=self.products;
     self.Categrory.text=self.categrories;
+    AppDelegate *myApp = (AppDelegate *) [[UIApplication sharedApplication]delegate];
+    self.context = myApp.managedObjectContext;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
