@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface Coupon : ViewController
+@interface Coupon : ViewController <UITextFieldDelegate>
 @property NSString *barcodes;
 @property NSString *exp_dates;
 @property NSString *products;
