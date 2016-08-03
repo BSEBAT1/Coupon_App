@@ -179,7 +179,7 @@
     NSLog(@"DATA SENT");
     [postDataTask resume];
     
-    
+    NSLog(@"data is %@",self.dictonary);
 
     
 }
@@ -203,7 +203,12 @@
         [Coupon setCategrories:[self.dictonary objectForKey:@"category"]];
         [Coupon setProducts:[self.dictonary objectForKey:@"product"]];
         [Coupon setExp_dates:[self.dictonary objectForKey:@"exp_date"]];
-        
+        [Coupon setValues:[self.dictonary objectForKey:@"value"] ];
+        [Coupon setDisclaimers:[self.dictonary objectForKey:@"Disclaimer"]];
+        [Coupon setQuantity:[self.dictonary objectForKey:@"quantity"]];
+    
+    
+    
      
     
    

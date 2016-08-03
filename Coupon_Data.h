@@ -12,14 +12,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Coupon_Data : NSManagedObject
+@property (nullable, nonatomic, retain) NSString *category;
 @property (nullable, nonatomic, retain) NSString *disclaimer;
 @property (nullable, nonatomic, retain) NSDate *exp_date;
 @property (nullable, nonatomic, retain) NSString *img_location;
-@property (nullable, nonatomic, retain) NSString *Product;
+@property (nullable, nonatomic, retain) NSString *product;
 @property (nullable, nonatomic, retain) NSNumber *quantity;
-@property (nullable, nonatomic, retain) NSString *category;
-@property (nullable, nonatomic, retain) NSDecimalNumber *value;
 @property (nullable, nonatomic, retain) NSString *upc;
+@property (nullable, nonatomic, retain) NSDecimalNumber *valuess;
 @end
 
 NS_ASSUME_NONNULL_END

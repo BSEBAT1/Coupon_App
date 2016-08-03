@@ -9,12 +9,12 @@
 #import "Coupon_Data.h"
 
 @implementation Coupon_Data
+@dynamic category;
 @dynamic disclaimer;
 @dynamic exp_date;
 @dynamic img_location;
-@dynamic Product;
+@dynamic product;
 @dynamic quantity;
-@dynamic category;
-@dynamic value;
 @dynamic upc;
+@dynamic valuess;
 @end

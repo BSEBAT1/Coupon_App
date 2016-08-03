@@ -13,6 +13,13 @@
 @property NSString *exp_dates;
 @property NSString *products;
 @property NSString *categrories;
+@property NSString *values;
+@property NSString *disclaimers;
+@property NSString *quantity;
+@property NSString *img_location;
+@property BOOL detail;
+@property NSString *UPC_SEGWAY;
+
 @property NSManagedObjectContext *context;
 
 @end

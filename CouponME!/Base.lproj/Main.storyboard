@@ -46,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1957" y="416"/>
+            <point key="canvasLocation" x="1943" y="146"/>
         </scene>
         <!--List Coupon-->
         <scene sceneID="Cmb-wY-E3v">
@@ -64,6 +64,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="sKH-4D-gCv" kind="show" id="dAM-EI-Rrg"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -205,6 +208,7 @@
                         <outlet property="Exp_date" destination="1on-VU-Ggf" id="Zx0-K8-W5e"/>
                         <outlet property="Notes" destination="zrK-LZ-HET" id="VgC-ui-5Nc"/>
                         <outlet property="Product_Name" destination="sV4-OO-RPG" id="Z9p-TO-PFF"/>
+                        <outlet property="Save" destination="xUt-HV-62z" id="SjZ-03-Je8"/>
                         <outlet property="quant" destination="QnV-5W-mUG" id="UWN-IR-3ay"/>
                         <outlet property="value" destination="D5A-gf-llq" id="wk5-ei-bIW"/>
                     </connections>
@@ -276,6 +280,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="zHH-KM-yJJ"/>
+        <segue reference="dAM-EI-Rrg"/>
     </inferredMetricsTieBreakers>
 </document>

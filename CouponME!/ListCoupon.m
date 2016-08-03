@@ -8,9 +8,10 @@
 
 #import "ListCoupon.h"
 #import "Coupon_Data.h"
+#import "Coupon.h"
 
 @interface ListCoupon ()
-
+@property NSString *celltitle;
 @end
 
 @implementation ListCoupon
@@ -81,6 +82,9 @@
     return cell;
 }
 
+-(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [[[self.fetchedResultsController sections]objectAtIndex:section]name];
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -116,15 +120,21 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    Coupon *coupondetail=[segue destinationViewController];
+    [coupondetail setDetail:YES];
+    [coupondetail setUPC_SEGWAY:self.celltitle];
+    
+    
 }
-*/
+
 
 -(NSFetchedResultsController *) fetchedResultsController {
     if (_fetchedResultsController != nil) {
@@ -143,12 +153,19 @@
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];
     
-    _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"Category" cacheName:nil];
+    _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"category" cacheName:nil];
     
     _fetchedResultsController.delegate = self;
     
     NSLog(@"Object count is %d", _fetchedResultsController.fetchedObjects.count);
     return _fetchedResultsController;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    self.celltitle=cell.textLabel.text;
+    
+    
 }
 
 
