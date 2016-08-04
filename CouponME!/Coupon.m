@@ -137,6 +137,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.categories=[[NSArray alloc]initWithObjects:@"English",@"Turkish", nil];
+    UIPickerView *categories_selection=[[UIPickerView alloc]init];
+    categories_selection.delegate=self;
+    categories_selection.dataSource=self;
+    [categories_selection setShowsSelectionIndicator:YES];
+    [self.Categrory setInputView:categories_selection];
+    
+    
+    
     if (self.detail==NO) {
         self.Barcode.text=self.barcodes;
         self.Exp_date.text=self.exp_dates;
@@ -279,7 +288,24 @@
     self.value.enabled=NO;
 }
 
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    
+    return self.categories.count;
+}
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    
+    return [self.categories objectAtIndex:row];
+}
 
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    
+    self.Categrory.text=[self.categories objectAtIndex:row];
+    [self.Categrory resignFirstResponder];
+    
+}
 
 
 

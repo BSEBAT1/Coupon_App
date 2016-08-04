@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520BC6C41D53FD2900BAC51C /* Savings.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BC6C31D53FD2900BAC51C /* Savings.m */; };
 		521FFA281D38776C00A9D211 /* ScanClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 521FFA271D38776C00A9D211 /* ScanClass.m */; };
 		527E20771D51961300DBF542 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527E20761D51961300DBF542 /* AVFoundation.framework */; };
 		52914EE71D43CEF2000C8C0E /* Coupon_Data+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 52914EE41D43CEF2000C8C0E /* Coupon_Data+CoreDataProperties.m */; };
@@ -23,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		520BC6C21D53FD2900BAC51C /* Savings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Savings.h; sourceTree = "<group>"; };
+		520BC6C31D53FD2900BAC51C /* Savings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Savings.m; sourceTree = "<group>"; };
 		521FFA261D38776C00A9D211 /* ScanClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScanClass.h; path = ../ScanClass.h; sourceTree = "<group>"; };
 		521FFA271D38776C00A9D211 /* ScanClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScanClass.m; path = ../ScanClass.m; sourceTree = "<group>"; };
 		527E20761D51961300DBF542 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -87,6 +90,8 @@
 				521FFA271D38776C00A9D211 /* ScanClass.m */,
 				52D730751D3DC7C0005CC5F1 /* Coupon.h */,
 				52D730761D3DC7C0005CC5F1 /* Coupon.m */,
+				520BC6C21D53FD2900BAC51C /* Savings.h */,
+				520BC6C31D53FD2900BAC51C /* Savings.m */,
 				52B8335B1D450F5700D54EB0 /* ListCoupon.h */,
 				52B8335C1D450F5700D54EB0 /* ListCoupon.m */,
 				52DBF4F81D347D5D00D6D8FA /* AppDelegate.h */,
@@ -186,6 +191,7 @@
 				52DBF4FD1D347D5D00D6D8FA /* ViewController.m in Sources */,
 				52DBF4FA1D347D5D00D6D8FA /* AppDelegate.m in Sources */,
 				52D730771D3DC7C0005CC5F1 /* Coupon.m in Sources */,
+				520BC6C41D53FD2900BAC51C /* Savings.m in Sources */,
 				52DBF4F71D347D5D00D6D8FA /* main.m in Sources */,
 				52914EE81D43CEF2000C8C0E /* Coupon_Data.m in Sources */,
 				52DBF5031D347D5D00D6D8FA /* CouponME_.xcdatamodeld in Sources */,

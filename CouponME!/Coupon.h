@@ -10,7 +10,7 @@
 #import "Coupon_Data.h"
 
 
-@interface Coupon : ViewController <UITextFieldDelegate>
+@interface Coupon : ViewController <UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
 @property NSString *barcodes;
 @property NSString *exp_dates;
 @property NSString *products;
@@ -21,6 +21,7 @@
 @property NSString *img_location;
 @property BOOL detail;
 @property Coupon_Data *current_detail;
+@property NSArray *categories;
 
 @property NSManagedObjectContext *context;
 
