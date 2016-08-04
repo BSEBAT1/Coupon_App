@@ -86,12 +86,7 @@
      
         
         
-        
-        
-        
-        
-        
-        
+         [self.navigationController popToViewController:self.navigationController.viewControllers[0] animated:YES];
         
         
         
@@ -130,7 +125,7 @@
         NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
     }
 
-    
+     [self.navigationController popToViewController:self.navigationController.viewControllers[0] animated:YES];
     
     }
     
@@ -160,10 +155,10 @@
         self.value.delegate=self;
         self.quant.delegate=self;
         self.Barcode.delegate=self;
-        
-        if (self.Product_Name==NULL) {
+        NSLog(@"product name is %@",self.products);
+        if (self.products==NULL) {
             self.newdata=YES;
-            
+            NSLog(@"we dont have this product");
             UIAlertController * alert=[UIAlertController
                                        alertControllerWithTitle:@"Coupon Not Found"
                                        message:@"Please Manually Enter Data!"
@@ -174,7 +169,7 @@
                                  style:UIAlertActionStyleDefault
                                  handler:^(UIAlertAction * action)
                                  {
-                                     [self.navigationController popToViewController:self.navigationController.viewControllers[0] animated:YES];
+                                     
                                      
                                  }];
             
