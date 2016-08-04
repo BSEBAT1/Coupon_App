@@ -40,12 +40,6 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 - (void)setupScanningSession {
     // Initalising the Capture session before doing any video capture/scanning.
     self.captureSession = [[AVCaptureSession alloc] init];
@@ -53,6 +47,10 @@
     NSError *error;
     // Set camera capture device to default and the media type to video.
     AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    [captureDevice lockForConfiguration:nil];
+    
+    captureDevice.torchMode=AVCaptureTorchModeOn;
+    
     // Set video capture input: If there a problem initialising the camera, it will give an error.
     AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
     
@@ -82,6 +80,7 @@
     [self.ScanCameraPreview.layer addSublayer:self.captureLayer];
     
 }
+
 
 // AVCaptureMetadataOutputObjectsDelegate method
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection {
@@ -169,6 +168,9 @@
             NSString *err = [parseError localizedDescription];
             NSLog(@"Encountered error parsing: %@", err);
             
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self buttonizeButtonTap:self];
+            });
             
         }
 
@@ -199,13 +201,14 @@
     
      
         Coupon *Coupon=[segue destinationViewController];
-        [Coupon setBarcodes:[self.dictonary objectForKey:@"upc_code"]];
+        [Coupon setBarcodes:self.barcode];
         [Coupon setCategrories:[self.dictonary objectForKey:@"category"]];
         [Coupon setProducts:[self.dictonary objectForKey:@"product"]];
         [Coupon setExp_dates:[self.dictonary objectForKey:@"exp_date"]];
         [Coupon setValues:[self.dictonary objectForKey:@"value"] ];
         [Coupon setDisclaimers:[self.dictonary objectForKey:@"Disclaimer"]];
         [Coupon setQuantity:[self.dictonary objectForKey:@"quantity"]];
+    Coupon.detail=NO;
     
     
     

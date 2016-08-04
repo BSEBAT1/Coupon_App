@@ -129,9 +129,11 @@
     // Pass the selected object to the new view controller.
     
     Coupon *coupondetail=[segue destinationViewController];
-    [coupondetail setDetail:YES];
-    [coupondetail setUPC_SEGWAY:self.celltitle];
     
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    Coupon_Data *selectedCoupon = (Coupon_Data *) [self.fetchedResultsController objectAtIndexPath:indexPath];
+    coupondetail.current_detail=selectedCoupon;
+    coupondetail.detail=YES;
     
 }
 
@@ -161,12 +163,7 @@
     return _fetchedResultsController;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    self.celltitle=cell.textLabel.text;
-    
-    
-}
+
 
 
 

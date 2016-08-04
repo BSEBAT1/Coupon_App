@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "Coupon_Data.h"
+
 
 @interface Coupon : ViewController <UITextFieldDelegate>
 @property NSString *barcodes;
@@ -18,7 +20,7 @@
 @property NSString *quantity;
 @property NSString *img_location;
 @property BOOL detail;
-@property NSString *UPC_SEGWAY;
+@property Coupon_Data *current_detail;
 
 @property NSManagedObjectContext *context;
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		521FFA281D38776C00A9D211 /* ScanClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 521FFA271D38776C00A9D211 /* ScanClass.m */; };
+		527E20771D51961300DBF542 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527E20761D51961300DBF542 /* AVFoundation.framework */; };
 		52914EE71D43CEF2000C8C0E /* Coupon_Data+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 52914EE41D43CEF2000C8C0E /* Coupon_Data+CoreDataProperties.m */; };
 		52914EE81D43CEF2000C8C0E /* Coupon_Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 52914EE61D43CEF2000C8C0E /* Coupon_Data.m */; };
 		52B8335D1D450F5700D54EB0 /* ListCoupon.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B8335C1D450F5700D54EB0 /* ListCoupon.m */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		521FFA261D38776C00A9D211 /* ScanClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScanClass.h; path = ../ScanClass.h; sourceTree = "<group>"; };
 		521FFA271D38776C00A9D211 /* ScanClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScanClass.m; path = ../ScanClass.m; sourceTree = "<group>"; };
+		527E20761D51961300DBF542 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		52914EE31D43CEF2000C8C0E /* Coupon_Data+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Coupon_Data+CoreDataProperties.h"; sourceTree = "<group>"; };
 		52914EE41D43CEF2000C8C0E /* Coupon_Data+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Coupon_Data+CoreDataProperties.m"; sourceTree = "<group>"; };
 		52914EE51D43CEF2000C8C0E /* Coupon_Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coupon_Data.h; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				527E20771D51961300DBF542 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +62,7 @@
 		52DBF4E91D347D5D00D6D8FA = {
 			isa = PBXGroup;
 			children = (
+				527E20761D51961300DBF542 /* AVFoundation.framework */,
 				52914EE31D43CEF2000C8C0E /* Coupon_Data+CoreDataProperties.h */,
 				52914EE41D43CEF2000C8C0E /* Coupon_Data+CoreDataProperties.m */,
 				52914EE51D43CEF2000C8C0E /* Coupon_Data.h */,

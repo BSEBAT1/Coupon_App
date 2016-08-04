@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *quant;
 @property (strong, nonatomic) IBOutlet UITextField *Notes;
 @property (strong, nonatomic) IBOutlet UIImageView *Coupon_Pic;
+@property  BOOL newdata;
 
 
 
@@ -34,7 +35,69 @@
 @implementation Coupon
 - (IBAction)Save_Coupon:(id)sender {
   
-    
+    if (self.newdata==YES) {
+        Coupon_Data *current_Coupon =[NSEntityDescription insertNewObjectForEntityForName:@"Coupon_Data" inManagedObjectContext:self.context];
+        
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSDate *date = [dateFormat dateFromString:self.Exp_date.text];
+        
+        NSDecimalNumber *cow = [NSDecimalNumber decimalNumberWithString:self.value.text];
+        
+        NSInteger a=[self.quant.text integerValue];
+        NSNumber *myNum = @(a);
+        
+        
+        
+        [current_Coupon setUpc:self.Barcode.text];
+        [current_Coupon setExp_date:date];
+        [current_Coupon setValuess:cow];
+        [current_Coupon setProduct:self.Product_Name.text];
+        [current_Coupon setDisclaimer:self.Notes.text];
+        [current_Coupon setQuantity:myNum];
+        [current_Coupon setCategory:self.Categrory.text];
+        
+        
+        
+        
+        
+        NSError *error = nil;
+        
+        if ([self.context save:&error] == NO) {
+            NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
+        }
+        
+        
+        
+        NSString *noteDataString = [NSString stringWithFormat:@"upc_code=%@&exp_date=%@&product=%@&category=%@&value=%@&quantity=%@&disclaimer=%@",self.Barcode.text,self.Exp_date.text,self.Product_Name.text,self.Categrory.text,self.value.text,self.quant.text,self.Notes.text];
+        
+        NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
+        NSURL *url = [NSURL URLWithString:@"http://www.berkaysebat.com/upload_coupon.php"];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        request.HTTPBody = [noteDataString dataUsingEncoding:NSUTF8StringEncoding];
+        request.HTTPMethod = @"POST";
+        NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            
+        }];
+        [postDataTask resume];
+     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    else
+    {
     Coupon_Data *current_Coupon =[NSEntityDescription insertNewObjectForEntityForName:@"Coupon_Data" inManagedObjectContext:self.context];
     
     
@@ -69,7 +132,7 @@
 
     
     
-    
+    }
     
     
     
@@ -97,33 +160,50 @@
         self.value.delegate=self;
         self.quant.delegate=self;
         self.Barcode.delegate=self;
+        
+        if (self.Product_Name==NULL) {
+            self.newdata=YES;
+            
+            UIAlertController * alert=[UIAlertController
+                                       alertControllerWithTitle:@"Coupon Not Found"
+                                       message:@"Please Manually Enter Data!"
+                                       preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction
+                                 actionWithTitle:@"OK"
+                                 style:UIAlertActionStyleDefault
+                                 handler:^(UIAlertAction * action)
+                                 {
+                                     [self.navigationController popToViewController:self.navigationController.viewControllers[0] animated:YES];
+                                     
+                                 }];
+            
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:^{
+            }];
+
+            
+        }
+        else{
+            
+            self.newdata=NO;
+            
+        }
+        
     }
-//    self.Barcode.text=self.barcodes;
-//    self.Exp_date.text=self.exp_dates;
-//    self.Product_Name.text=self.products;
-//    self.Categrory.text=self.categrories;
-//    self.quant.text=self.quantity;
-//    self.Notes.text=self.disclaimers;
-//    self.value.text=self.values;
-//    
-//    AppDelegate *myApp = (AppDelegate *) [[UIApplication sharedApplication]delegate];
-//    self.context = myApp.managedObjectContext;
-//    self.Notes.delegate=self;
-//    self.Exp_date.delegate=self;
-//    self.Product_Name.delegate=self;
-//    self.Categrory.delegate=self;
-//    self.value.delegate=self;
-//    self.quant.delegate=self;
-//    self.Barcode.delegate=self;
+
     else {
         
-        AppDelegate *myApp = (AppDelegate *) [[UIApplication sharedApplication]delegate];
-        self.context = myApp.managedObjectContext;
+        
         [self detailview];
         
         
         
     }
+    
+    
+    
+    
     
     
     
@@ -176,24 +256,32 @@
 -(void)detailview{
     
     self.Save.hidden=YES;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Coupon_Data" inManagedObjectContext:[self context]];
-    NSString *UPC = self.UPC_SEGWAY;
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"upc== %@", UPC]];
-    fetchRequest.fetchLimit=1;
-    [fetchRequest setEntity:entity];
+
+    NSLog(@"the upc is %@",[self.current_detail upc]);
     
     
-    NSError *error = nil;
-    NSArray *saglam = [[self context] executeFetchRequest:fetchRequest error:&error];
-    Coupon_Data *current_coupon=[saglam objectAtIndex:0];
-    NSLog(@"the upc is %@",[current_coupon upc]);
+    NSDate *date_two =[self.current_detail exp_date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSString *stringFromDate = [dateFormat stringFromDate:date_two];
+    NSString *int_to_string = [[self.current_detail quantity]stringValue];
+    NSString *double_to_string=[[self.current_detail valuess]stringValue];
     
-    
-    
-    
-    
-    
+    self.Barcode.text=[self.current_detail upc];
+    self.Exp_date.text=stringFromDate;
+    self.Product_Name.text=[self.current_detail product];
+    self.Categrory.text=[self.current_detail category];
+    self.quant.text=int_to_string;
+    self.Notes.text=[self.current_detail disclaimer];
+    self.value.text=double_to_string;
+   
+    self.Barcode.enabled=NO;
+    self.Exp_date.enabled=NO;
+    self.Product_Name.enabled=NO;
+    self.Categrory.enabled=NO;
+    self.quant.enabled=NO;
+    self.Notes.enabled=NO;
+    self.value.enabled=NO;
 }
 
 
