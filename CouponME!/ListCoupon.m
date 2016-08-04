@@ -94,17 +94,30 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        NSManagedObjectContext *context = [self managedObjectContext];
+        Coupon_Data *couponToDelete = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [context deleteObject:couponToDelete];
+        
+        
+//        
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        
+        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView reloadData];
+}
+
 
 /*
 // Override to support rearranging the table view.
@@ -162,6 +175,9 @@
     NSLog(@"Object count is %d", _fetchedResultsController.fetchedObjects.count);
     return _fetchedResultsController;
 }
+
+
+
 
 
 
