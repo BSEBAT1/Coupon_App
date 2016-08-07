@@ -21,9 +21,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *Notes;
 @property (strong, nonatomic) IBOutlet UIImageView *Coupon_Pic;
 @property  BOOL newdata;
-
-
-
+@property UIDatePicker *pickerDate;
 
 
 @property (strong, nonatomic) IBOutlet UIButton *Save;
@@ -144,7 +142,19 @@
     [categories_selection setShowsSelectionIndicator:YES];
     [self.Categrory setInputView:categories_selection];
     
+    UIView *viewDateInput = [[UIView alloc] initWithFrame:CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width, 200)];
+    [viewDateInput setBackgroundColor:[UIColor whiteColor]];
+    self.pickerDate = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, viewDateInput.frame.size.width, viewDateInput.frame.size.height)];
+    self.pickerDate.datePickerMode = UIDatePickerModeDate;
+    [viewDateInput addSubview:self.pickerDate];
+    [self.pickerDate addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.Exp_date setInputView:viewDateInput];
+   
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
     
+    [self.view addGestureRecognizer:tap];
     
     if (self.detail==NO) {
         self.Barcode.text=self.barcodes;
@@ -307,7 +317,17 @@
     
 }
 
-
+- (void)dateChanged:(id)sender
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *currentTime = [dateFormatter stringFromDate:self.pickerDate.date];
+    self.Exp_date.text = currentTime;
+    
+}
+-(void)dismissKeyboard {
+    [self.Exp_date resignFirstResponder];
+}
 
 
 @end

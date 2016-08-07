@@ -1,18 +1,18 @@
 //
-//  Savings.m
+//  WelcomeViewController.m
 //  CouponME!
 //
-//  Created by macbook pro on 8/4/16.
+//  Created by macbook pro on 8/7/16.
 //  Copyright © 2016 berkaysebat.com.trivia. All rights reserved.
 //
 
-#import "Savings.h"
+#import "WelcomeViewController.h"
 
-@interface Savings ()
+@interface WelcomeViewController ()
 
 @end
 
-@implementation Savings
+@implementation WelcomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

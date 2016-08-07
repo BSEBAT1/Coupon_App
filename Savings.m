@@ -1,13 +1,15 @@
 //
-//  Savings.h
+//  Savings.m
 //  CouponME!
 //
 //  Created by macbook pro on 8/4/16.
 //  Copyright © 2016 berkaysebat.com.trivia. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Savings.h"
 
-@interface Savings : UIViewController
+@implementation Savings
+
+@dynamic ttsave;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Coupon_Data.h"
+#import <UIKit/UIKit.h>
 
 
 @interface Coupon : ViewController <UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
@@ -22,6 +23,7 @@
 @property BOOL detail;
 @property Coupon_Data *current_detail;
 @property NSArray *categories;
+@property NSDateFormatter *dateFormat;
 
 @property NSManagedObjectContext *context;
 

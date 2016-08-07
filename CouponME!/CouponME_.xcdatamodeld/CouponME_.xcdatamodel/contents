@@ -10,7 +10,7 @@
         <attribute name="upc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="valuess" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
     </entity>
-    <entity name="Savings" syncable="YES">
+    <entity name="Savings" representedClassName="Savings" syncable="YES">
         <attribute name="ttsave" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <elements>

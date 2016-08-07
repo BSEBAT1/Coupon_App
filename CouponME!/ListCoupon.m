@@ -9,9 +9,12 @@
 #import "ListCoupon.h"
 #import "Coupon_Data.h"
 #import "Coupon.h"
+#import "Savings.h"
+
 
 @interface ListCoupon ()
 @property NSString *celltitle;
+@property NSDecimalNumber* couponamt;
 @end
 
 @implementation ListCoupon
@@ -33,20 +36,6 @@
     NSLog(@"fetched this data %@",self.fetchedResultsController);
     
     
-//    NSError *error = nil;
-//    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Coupon_Data"];
-//    [request setSortDescriptors:[NSArray arrayWithObject:
-//                                 [NSSortDescriptor sortDescriptorWithKey:@"quantity" ascending:YES]]];
-//    [request setReturnsObjectsAsFaults:NO];
-//   
-//    NSArray *testArray = [[self managedObjectContext] executeFetchRequest:request error:&error];
-//    
-//    for (Coupon_Data *obj in testArray) {
-//        NSLog(@"obj.id %@", obj.product);
-//    }
-//    
-//    NSLog(@"query records: %@",testArray);
-//
     NSError *error = nil;
     if (![[self fetchedResultsController] performFetch:&error]) {
         
@@ -99,14 +88,16 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        
         NSManagedObjectContext *context = [self managedObjectContext];
+        
         Coupon_Data *couponToDelete = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        self.couponamt=couponToDelete.valuess;
+        [self trackcoupon:self.couponamt];
         [context deleteObject:couponToDelete];
         
         
-//        
-//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//        
+      
         
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -177,7 +168,16 @@
 }
 
 
-
+-(void)trackcoupon:(NSDecimalNumber *)savings{
+    Savings *current_object =[NSEntityDescription insertNewObjectForEntityForName:@"Savings" inManagedObjectContext:self.managedObjectContext];
+    
+    [current_object setTtsave:savings];
+    NSError *error = nil;
+    
+    if ([self.managedObjectContext save:&error] == NO) {
+        NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
+    }
+}
 
 
 
