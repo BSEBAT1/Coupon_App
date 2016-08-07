@@ -9,6 +9,7 @@
 #import "WelcomeViewController.h"
 
 @interface WelcomeViewController ()
+@property (nonatomic, strong) CAGradientLayer *gradientLayer;
 
 @end
 
@@ -17,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.gradientLayer = [CAGradientLayer layer];
+    self.gradientLayer.colors = @[ (__bridge id)[UIColor colorWithRed:0.94 green:0.30 blue:0.71 alpha:1.0].CGColor, (__bridge id)[UIColor colorWithRed:0.78 green:0.26 blue:0.99 alpha:1.0].CGColor ];
 }
 
 - (void)didReceiveMemoryWarning {

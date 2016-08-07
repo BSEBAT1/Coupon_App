@@ -19,7 +19,6 @@
 		52DBD00C1D5773BD00977741 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DBD00B1D5773BD00977741 /* WelcomeViewController.m */; };
 		52DBF4F71D347D5D00D6D8FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DBF4F61D347D5D00D6D8FA /* main.m */; };
 		52DBF4FA1D347D5D00D6D8FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DBF4F91D347D5D00D6D8FA /* AppDelegate.m */; };
-		52DBF4FD1D347D5D00D6D8FA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DBF4FC1D347D5D00D6D8FA /* ViewController.m */; };
 		52DBF5001D347D5D00D6D8FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DBF4FE1D347D5D00D6D8FA /* Main.storyboard */; };
 		52DBF5031D347D5D00D6D8FA /* CouponME_.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52DBF5011D347D5D00D6D8FA /* CouponME_.xcdatamodeld */; };
 		52DBF5051D347D5D00D6D8FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52DBF5041D347D5D00D6D8FA /* Assets.xcassets */; };
@@ -50,8 +49,6 @@
 		52DBF4F61D347D5D00D6D8FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		52DBF4F81D347D5D00D6D8FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		52DBF4F91D347D5D00D6D8FA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		52DBF4FB1D347D5D00D6D8FA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		52DBF4FC1D347D5D00D6D8FA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		52DBF4FF1D347D5D00D6D8FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52DBF5021D347D5D00D6D8FA /* CouponME_.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CouponME_.xcdatamodel; sourceTree = "<group>"; };
 		52DBF5041D347D5D00D6D8FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,8 +106,6 @@
 				52B8335C1D450F5700D54EB0 /* ListCoupon.m */,
 				52DBF4F81D347D5D00D6D8FA /* AppDelegate.h */,
 				52DBF4F91D347D5D00D6D8FA /* AppDelegate.m */,
-				52DBF4FB1D347D5D00D6D8FA /* ViewController.h */,
-				52DBF4FC1D347D5D00D6D8FA /* ViewController.m */,
 				52DBF4FE1D347D5D00D6D8FA /* Main.storyboard */,
 				52DBD00A1D5773BD00977741 /* WelcomeViewController.h */,
 				52DBD00B1D5773BD00977741 /* WelcomeViewController.m */,
@@ -205,7 +200,6 @@
 				520BC6CD1D54036900BAC51C /* Savings_Display.m in Sources */,
 				52B8335D1D450F5700D54EB0 /* ListCoupon.m in Sources */,
 				521FFA281D38776C00A9D211 /* ScanClass.m in Sources */,
-				52DBF4FD1D347D5D00D6D8FA /* ViewController.m in Sources */,
 				520BC6CA1D5401CD00BAC51C /* Savings.m in Sources */,
 				520BC6C91D5401CD00BAC51C /* Savings+CoreDataProperties.m in Sources */,
 				52DBF4FA1D347D5D00D6D8FA /* AppDelegate.m in Sources */,
