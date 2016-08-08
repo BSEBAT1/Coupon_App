@@ -6,12 +6,12 @@
 //  Copyright © 2016 berkaysebat.com.trivia. All rights reserved.
 //
 
-#import "WelcomeViewController.h"
+#import "ViewController.h"
 #import "Coupon_Data.h"
 #import <UIKit/UIKit.h>
 
 
-@interface Coupon : UIViewController <UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
+@interface Coupon : ViewController <UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
 @property NSString *barcodes;
 @property NSString *exp_dates;
 @property NSString *products;
@@ -26,5 +26,7 @@
 @property NSDateFormatter *dateFormat;
 
 @property NSManagedObjectContext *context;
+
+
 
 @end

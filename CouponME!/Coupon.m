@@ -22,6 +22,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *Coupon_Pic;
 @property  BOOL newdata;
 @property UIDatePicker *pickerDate;
+@property (nonatomic, strong) CAGradientLayer *gradientLayer;
 
 
 @property (strong, nonatomic) IBOutlet UIButton *Save;
@@ -134,8 +135,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.gradientLayer = [CAGradientLayer layer];
+    self.gradientLayer.colors = @[ (__bridge id)[UIColor colorWithRed:0.94 green:0.30 blue:0.71 alpha:1.0].CGColor, (__bridge id)[UIColor colorWithRed:0.78 green:0.26 blue:0.99 alpha:1.0].CGColor ];
+    [self.view.layer insertSublayer:self.gradientLayer atIndex:0];
+    self.Save.layer.cornerRadius=20;
     
-    self.categories=[[NSArray alloc]initWithObjects:@"English",@"Turkish", nil];
+    
+    
+    
+    self.categories=[[NSArray alloc]initWithObjects:@"Baby",@"Baking",@"Breads",@"Breakfast",@"Canned / Jarred Food",@"DCleaning Supplies",@"Condiments",@"Dairy / Refrigerated",@"Dried Goods",@"Fresh Food", @"Frozen Goods", @"Household Goods", @"Laundry Supplies", @"Medical", @"Paper Goods", @"Personal Care: Dental",@"Personal Care: Cosmetics / Makeup", @"Personal Care: Hair Care", @"Personal Care: Miscellaneous", @"Pets",  @"Pets",  @"Snacks", @"Miscellaneous",   nil];
     UIPickerView *categories_selection=[[UIPickerView alloc]init];
     categories_selection.delegate=self;
     categories_selection.dataSource=self;
@@ -329,5 +337,9 @@
     [self.Exp_date resignFirstResponder];
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    self.gradientLayer.frame = self.view.bounds;
+}
 
 @end

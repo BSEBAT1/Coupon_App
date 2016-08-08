@@ -15,6 +15,7 @@
 @property (nonatomic,strong) NSString *barcode;
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *captureLayer;
+@property (nonatomic, strong) CAGradientLayer *gradientLayer;
 
 
 
@@ -28,6 +29,12 @@
     [super viewDidLoad];
     UIBarButtonItem *buttonizeButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleDone target:self action:@selector(buttonizeButtonTap:)];
     self.navigationItem.rightBarButtonItems = @[buttonizeButton];
+    self.gradientLayer = [CAGradientLayer layer];
+    self.gradientLayer.colors = @[ (__bridge id)[UIColor colorWithRed:0.94 green:0.30 blue:0.71 alpha:1.0].CGColor, (__bridge id)[UIColor colorWithRed:0.78 green:0.26 blue:0.99 alpha:1.0].CGColor ];
+    [self.view.layer insertSublayer:self.gradientLayer atIndex:0];
+    
+    
+    
     [self setupScanningSession];
     self.Spinner.hidesWhenStopped=YES;
     
@@ -39,6 +46,12 @@
     
     
 }
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    self.gradientLayer.frame = self.view.bounds;
+}
+
 
 - (void)setupScanningSession {
     // Initalising the Capture session before doing any video capture/scanning.

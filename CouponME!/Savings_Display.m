@@ -11,6 +11,7 @@
 @interface Savings_Display ()
 @property (strong, nonatomic) IBOutlet UILabel *Current;
 @property (strong, nonatomic) IBOutlet UILabel *Historic;
+@property (nonatomic, strong) CAGradientLayer *gradientLayer;
 
 @end
 
@@ -20,6 +21,9 @@
     [super viewDidLoad];
     AppDelegate *myApp = (AppDelegate *) [[UIApplication sharedApplication]delegate];
     self.context = myApp.managedObjectContext;
+    self.gradientLayer = [CAGradientLayer layer];
+    self.gradientLayer.colors = @[ (__bridge id)[UIColor colorWithRed:0.94 green:0.30 blue:0.71 alpha:1.0].CGColor, (__bridge id)[UIColor colorWithRed:0.78 green:0.26 blue:0.99 alpha:1.0].CGColor ];
+    [self.view.layer insertSublayer:self.gradientLayer atIndex:0];
     
     NSError *error = nil;
         NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Coupon_Data"];
@@ -72,5 +76,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    self.gradientLayer.frame = self.view.bounds;
+}
 
 @end
