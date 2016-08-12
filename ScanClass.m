@@ -16,6 +16,7 @@
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *captureLayer;
 @property (nonatomic, strong) CAGradientLayer *gradientLayer;
+@property NSString *retString;
 
 
 
@@ -60,10 +61,6 @@
     NSError *error;
     // Set camera capture device to default and the media type to video.
     AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    [captureDevice lockForConfiguration:nil];
-    
-    captureDevice.torchMode=AVCaptureTorchModeOn;
-    
     // Set video capture input: If there a problem initialising the camera, it will give an error.
     AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
     
@@ -156,18 +153,32 @@
     NSLog(@"note body is %@",request.HTTPBody);
     request.HTTPMethod = @"POST";
     NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSString *retString = [NSString stringWithUTF8String:[data bytes]];
         
-        NSLog(@"json returned: %@", retString);
+        if ([data length]>0) {
+            self.retString = [NSString stringWithUTF8String:[data bytes]];
+            NSError *parseError = nil;
+            self.dictonary=nil;
+            
+            self.dictonary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+            NSLog(@"the first object is%@",[self.dictonary objectForKey:@"upc_code"]);
+        }
+        else{
+             self.retString =@"NULL";
+        }
+        
+      
+        
+       NSLog(@"json returned: %@", self.retString);
+        
         
         NSError *parseError = nil;
-        self.dictonary=nil;
-        
-       self.dictonary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
-        NSLog(@"the first object is%@",[self.dictonary objectForKey:@"upc_code"]);
+      
         
         if (!parseError) {
             [self.Spinner stopAnimating];
+            
+            
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self buttonizeButtonTap:self]; 
             });

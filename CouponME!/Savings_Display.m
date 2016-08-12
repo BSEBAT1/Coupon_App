@@ -25,6 +25,13 @@
     self.gradientLayer.colors = @[ (__bridge id)[UIColor colorWithRed:0.94 green:0.30 blue:0.71 alpha:1.0].CGColor, (__bridge id)[UIColor colorWithRed:0.78 green:0.26 blue:0.99 alpha:1.0].CGColor ];
     [self.view.layer insertSublayer:self.gradientLayer atIndex:0];
     
+    self.Current.layer.cornerRadius=5;
+    self.Historic.layer.cornerRadius=5;
+    self.Current.layer.masksToBounds=YES;
+    self.Historic.layer.masksToBounds=YES;
+    
+    
+    
     NSError *error = nil;
         NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Coupon_Data"];
         [request setSortDescriptors:[NSArray arrayWithObject:

@@ -16,7 +16,18 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchers" translatesAutoresizingMaskIntoConstraints="NO" id="Flt-mu-llt">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Flt-mu-llt" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="ANJ-ZW-zUs"/>
+                            <constraint firstItem="Flt-mu-llt" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="ap8-QW-nx5"/>
+                            <constraint firstItem="Flt-mu-llt" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="w0Y-wH-acj"/>
+                            <constraint firstAttribute="trailing" secondItem="Flt-mu-llt" secondAttribute="trailing" id="w79-XE-h0D"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="78i-Ib-xu9"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -26,4 +37,7 @@
             <point key="canvasLocation" x="864.5" y="374.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="launchers" width="750" height="1334"/>
+    </resources>
 </document>

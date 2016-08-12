@@ -143,7 +143,7 @@
     
     
     
-    self.categories=[[NSArray alloc]initWithObjects:@"Baby",@"Baking",@"Breads",@"Breakfast",@"Canned / Jarred Food",@"DCleaning Supplies",@"Condiments",@"Dairy / Refrigerated",@"Dried Goods",@"Fresh Food", @"Frozen Goods", @"Household Goods", @"Laundry Supplies", @"Medical", @"Paper Goods", @"Personal Care: Dental",@"Personal Care: Cosmetics / Makeup", @"Personal Care: Hair Care", @"Personal Care: Miscellaneous", @"Pets",  @"Pets",  @"Snacks", @"Miscellaneous",   nil];
+    self.categories=[[NSArray alloc]initWithObjects:@"Baby",@"Baking",@"Breads",@"Breakfast",@"Canned / Jarred Food",@"Cleaning Supplies",@"Condiments",@"Dairy / Refrigerated",@"Dried Goods",@"Fresh Food", @"Frozen Goods", @"Household Goods", @"Laundry Supplies", @"Medical", @"Paper Goods", @"Personal Care: Dental",@"Personal Care: Cosmetics / Makeup", @"Personal Care: Hair Care", @"Personal Care: Miscellaneous", @"Pets", @"Snacks", @"Miscellaneous",   nil];
     UIPickerView *categories_selection=[[UIPickerView alloc]init];
     categories_selection.delegate=self;
     categories_selection.dataSource=self;
