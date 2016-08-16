@@ -3,6 +3,7 @@
     <entity name="Coupon_Data" representedClassName="Coupon_Data" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="disclaimer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="duplicate" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="exp_date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="img_location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="product" optional="YES" attributeType="String" syncable="YES"/>
@@ -14,7 +15,7 @@
         <attribute name="ttsave" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Coupon_Data" positionX="-54" positionY="-9" width="128" height="165"/>
+        <element name="Coupon_Data" positionX="-54" positionY="-9" width="128" height="180"/>
         <element name="Savings" positionX="-54" positionY="54" width="128" height="60"/>
     </elements>
 </model>

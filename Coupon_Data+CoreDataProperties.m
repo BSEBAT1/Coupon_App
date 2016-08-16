@@ -2,7 +2,7 @@
 //  Coupon_Data+CoreDataProperties.m
 //  CouponME!
 //
-//  Created by macbook pro on 7/28/16.
+//  Created by macbook pro on 8/14/16.
 //  Copyright © 2016 berkaysebat.com.trivia. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -21,5 +21,6 @@
 @dynamic quantity;
 @dynamic upc;
 @dynamic valuess;
+@dynamic duplicate;
 
 @end

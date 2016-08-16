@@ -2,7 +2,7 @@
 //  Coupon_Data+CoreDataProperties.h
 //  CouponME!
 //
-//  Created by macbook pro on 7/28/16.
+//  Created by macbook pro on 8/14/16.
 //  Copyright © 2016 berkaysebat.com.trivia. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSNumber *quantity;
 @property (nullable, nonatomic, retain) NSString *upc;
 @property (nullable, nonatomic, retain) NSDecimalNumber *valuess;
+@property (nullable, nonatomic, retain) NSNumber *duplicate;
 
 @end
 

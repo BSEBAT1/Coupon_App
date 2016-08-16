@@ -9,6 +9,7 @@
 #import "ScanClass.h"
 #import <AVFoundation/AVFoundation.h>
 #import "Coupon.h"
+
 @interface ScanClass () <AVCaptureMetadataOutputObjectsDelegate>
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *Spinner;
 @property (strong, nonatomic) IBOutlet UIView *ScanCameraPreview;
@@ -16,6 +17,10 @@
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *captureLayer;
 @property (nonatomic, strong) CAGradientLayer *gradientLayer;
+@property(nonatomic, retain) AVCaptureStillImageOutput *stillImageOutput;
+@property UIImage *coupon_pic;
+
+
 @property NSString *retString;
 
 
@@ -74,6 +79,10 @@
     AVCaptureMetadataOutput *captureMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
     // Set output to capture session. Initalising an output object we will use later.
     [self.captureSession addOutput:captureMetadataOutput];
+    self.stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
+    NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys: AVVideoCodecJPEG, AVVideoCodecKey, nil];
+    [self.stillImageOutput setOutputSettings:outputSettings];
+    [self.captureSession addOutput:self.stillImageOutput];
     
     // Create a new queue and set delegate for metadata objects scanned.
     dispatch_queue_t dispatchQueue;
@@ -88,6 +97,7 @@
     [self.captureLayer setFrame:self.ScanCameraPreview.layer.bounds];
     // Adding the camera AVCaptureVideoPreviewLayer to our view's layer.
     [self.ScanCameraPreview.layer addSublayer:self.captureLayer];
+    
     
 }
 
@@ -115,6 +125,8 @@
         for (NSString *supportedBarcode in supportedBarcodeTypes) {
             
             if ([supportedBarcode isEqualToString:barcodeMetadata.type]) {
+                
+              
                 // This is a supported barcode
                 // Note barcodeMetadata is of type AVMetadataObject
                 // AND barcodeObject is of type AVMetadataMachineReadableCodeObject
@@ -122,11 +134,17 @@
                 capturedBarcode = [barcodeObject stringValue];
                 // Got the barcode. Set the text and break out of the loop.
                 
+               
+                
                 dispatch_sync(dispatch_get_main_queue(), ^{
+                    
+                    [self addpicture];
                     [self.captureSession stopRunning];
+                    
                     self.barcode = capturedBarcode;
                     NSLog(@"barcode is %@",self.barcode);
                     NSLog(@"captured barcode is %@",capturedBarcode);
+                    
                     [self post];
                 });
                 return;
@@ -135,6 +153,31 @@
     }
     
     
+    
+}
+-(void)addpicture{
+    
+    
+    AVCaptureConnection *videoConnection = nil;
+    for (AVCaptureConnection *connection in self.stillImageOutput.connections) {
+        for (AVCaptureInputPort *port in [connection inputPorts]) {
+            if ([[port mediaType] isEqual:AVMediaTypeVideo] ) {
+                videoConnection = connection;
+                break;
+            }
+        }
+        if (videoConnection) { break; }
+    }
+    
+    NSLog(@"about to request a capture from: %@", self.stillImageOutput);
+    
+    [self.stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection completionHandler: ^(CMSampleBufferRef imageSampleBuffer, NSError *error) {
+        
+        NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
+        UIImage *image = [[UIImage alloc] initWithData:imageData];
+        self.coupon_pic=image;
+        
+    }];
     
 }
 -(void)post{
@@ -233,15 +276,19 @@
         [Coupon setDisclaimers:[self.dictonary objectForKey:@"Disclaimer"]];
         [Coupon setQuantity:[self.dictonary objectForKey:@"quantity"]];
     Coupon.detail=NO;
+    [Coupon setCoupon_image:self.coupon_pic];
     
     
     
-     
+    
+
     
    
     
     
 }
+
+
 
 
 @end

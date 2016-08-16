@@ -17,4 +17,5 @@
 @dynamic quantity;
 @dynamic upc;
 @dynamic valuess;
+@dynamic duplicate;
 @end

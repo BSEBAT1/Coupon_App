@@ -20,7 +20,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSNumber *quantity;
 @property (nullable, nonatomic, retain) NSString *upc;
 @property (nullable, nonatomic, retain) NSDecimalNumber *valuess;
+@property (nullable, nonatomic, retain) NSNumber *duplicate;
+
 @end
+
+
 
 NS_ASSUME_NONNULL_END
 

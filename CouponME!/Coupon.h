@@ -24,8 +24,9 @@
 @property Coupon_Data *current_detail;
 @property NSArray *categories;
 @property NSDateFormatter *dateFormat;
-
+@property UIImage *coupon_image;
 @property NSManagedObjectContext *context;
+
 
 
 

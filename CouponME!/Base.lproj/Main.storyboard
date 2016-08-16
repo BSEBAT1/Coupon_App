@@ -199,7 +199,7 @@
                             <scrollView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="foN-nF-juJ">
                                 <rect key="frame" x="0.0" y="64" width="320" height="936"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TXi-k6-QIL">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXi-k6-QIL">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1100"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Coupon Name " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sV4-OO-RPG">
@@ -334,15 +334,20 @@
                                                 <color key="textColor" red="0.2784313725" green="0.94117647059999998" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o0x-i7-Ytb">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="175"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="KSo-cv-6p9" firstAttribute="trailing" secondItem="sV4-OO-RPG" secondAttribute="trailing" id="215-KT-qfd"/>
                                             <constraint firstItem="TAn-1d-cb6" firstAttribute="leading" secondItem="kab-eH-1xj" secondAttribute="leading" id="2hG-6q-C8H"/>
+                                            <constraint firstItem="o0x-i7-Ytb" firstAttribute="centerX" secondItem="zrK-LZ-HET" secondAttribute="centerX" id="9kP-0N-VlU"/>
                                             <constraint firstItem="1on-VU-Ggf" firstAttribute="trailing" secondItem="QnV-5W-mUG" secondAttribute="trailing" id="AQ1-vR-vSO"/>
                                             <constraint firstItem="kab-eH-1xj" firstAttribute="leading" secondItem="dJM-WI-JnZ" secondAttribute="leading" id="AbB-HI-LnZ"/>
                                             <constraint firstItem="cM2-tn-vm0" firstAttribute="top" secondItem="sV4-OO-RPG" secondAttribute="bottom" constant="27" id="Ddz-jW-VgH"/>
                                             <constraint firstItem="D5A-gf-llq" firstAttribute="leading" secondItem="Jbr-ut-0ft" secondAttribute="leading" id="Dmy-t7-GQH"/>
+                                            <constraint firstItem="o0x-i7-Ytb" firstAttribute="top" secondItem="TXi-k6-QIL" secondAttribute="top" id="ED9-Hn-zEz"/>
                                             <constraint firstItem="xUt-HV-62z" firstAttribute="top" secondItem="zrK-LZ-HET" secondAttribute="bottom" constant="14" id="ElL-dN-aui"/>
                                             <constraint firstItem="zrK-LZ-HET" firstAttribute="centerX" secondItem="TXi-k6-QIL" secondAttribute="centerX" id="GcS-i6-KCh"/>
                                             <constraint firstItem="zfk-sv-3gN" firstAttribute="leading" secondItem="zrK-LZ-HET" secondAttribute="leading" id="H4M-ru-STb"/>
@@ -355,6 +360,7 @@
                                             <constraint firstItem="1on-VU-Ggf" firstAttribute="top" secondItem="TAn-1d-cb6" secondAttribute="bottom" constant="8" symbolic="YES" id="WIy-Su-4zD"/>
                                             <constraint firstItem="KSo-cv-6p9" firstAttribute="top" secondItem="9pR-SA-VVg" secondAttribute="bottom" constant="8" symbolic="YES" id="XFR-kQ-D4A"/>
                                             <constraint firstItem="Jbr-ut-0ft" firstAttribute="top" secondItem="zfk-sv-3gN" secondAttribute="bottom" constant="8" symbolic="YES" id="XSZ-NU-lTv"/>
+                                            <constraint firstItem="o0x-i7-Ytb" firstAttribute="leading" secondItem="9pR-SA-VVg" secondAttribute="leading" constant="-8" id="XYg-dw-jtf"/>
                                             <constraint firstItem="sV4-OO-RPG" firstAttribute="leading" secondItem="cM2-tn-vm0" secondAttribute="leading" id="b8l-BN-d8v"/>
                                             <constraint firstItem="1on-VU-Ggf" firstAttribute="leading" secondItem="QnV-5W-mUG" secondAttribute="leading" id="cMW-9c-SPs"/>
                                             <constraint firstItem="KSo-cv-6p9" firstAttribute="leading" secondItem="XzX-3v-4kk" secondAttribute="leading" id="dJl-mZ-Chb"/>
@@ -372,8 +378,9 @@
                                             <constraint firstItem="zrK-LZ-HET" firstAttribute="trailing" secondItem="xUt-HV-62z" secondAttribute="trailing" id="sR9-aR-APs"/>
                                             <constraint firstItem="zrK-LZ-HET" firstAttribute="top" secondItem="dJM-WI-JnZ" secondAttribute="bottom" constant="8" symbolic="YES" id="sTq-4X-2ll"/>
                                             <constraint firstItem="sV4-OO-RPG" firstAttribute="top" secondItem="XzX-3v-4kk" secondAttribute="bottom" constant="8" symbolic="YES" id="t7K-o6-7It"/>
-                                            <constraint firstAttribute="height" constant="1047" id="uii-B5-lu7"/>
+                                            <constraint firstAttribute="height" constant="1100" id="uii-B5-lu7"/>
                                             <constraint firstItem="zrK-LZ-HET" firstAttribute="leading" secondItem="xUt-HV-62z" secondAttribute="leading" id="wNB-ez-QCA"/>
+                                            <constraint firstItem="9pR-SA-VVg" firstAttribute="top" secondItem="o0x-i7-Ytb" secondAttribute="bottom" constant="19" id="we2-rg-gHC"/>
                                             <constraint firstItem="TAn-1d-cb6" firstAttribute="trailing" secondItem="kab-eH-1xj" secondAttribute="trailing" id="zP3-uB-K8m"/>
                                             <constraint firstItem="zfk-sv-3gN" firstAttribute="top" secondItem="QnV-5W-mUG" secondAttribute="bottom" constant="20" id="zWs-24-wYz"/>
                                             <constraint firstItem="TAn-1d-cb6" firstAttribute="leading" secondItem="TXi-k6-QIL" secondAttribute="leading" constant="12" id="zf0-2F-ZjH"/>
@@ -381,9 +388,9 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="TXi-k6-QIL" secondAttribute="bottom" constant="-100" id="1wM-uB-0RU"/>
+                                    <constraint firstAttribute="bottom" secondItem="TXi-k6-QIL" secondAttribute="bottom" constant="-164" id="1wM-uB-0RU"/>
                                     <constraint firstItem="TXi-k6-QIL" firstAttribute="centerX" secondItem="foN-nF-juJ" secondAttribute="centerX" id="UFZ-yU-JHA"/>
-                                    <constraint firstItem="TXi-k6-QIL" firstAttribute="top" secondItem="foN-nF-juJ" secondAttribute="top" constant="64" id="XZi-O0-puz"/>
+                                    <constraint firstItem="TXi-k6-QIL" firstAttribute="top" secondItem="foN-nF-juJ" secondAttribute="top" id="XZi-O0-puz"/>
                                     <constraint firstAttribute="trailing" secondItem="TXi-k6-QIL" secondAttribute="trailing" id="h5h-Rg-3rd"/>
                                     <constraint firstItem="TXi-k6-QIL" firstAttribute="leading" secondItem="foN-nF-juJ" secondAttribute="leading" id="u3P-Ua-0QO"/>
                                 </constraints>
@@ -402,6 +409,7 @@
                     <connections>
                         <outlet property="Barcode" destination="KSo-cv-6p9" id="yxo-qB-q2E"/>
                         <outlet property="Categrory" destination="Jbr-ut-0ft" id="gld-9D-E0u"/>
+                        <outlet property="Coupon_Pic" destination="o0x-i7-Ytb" id="5fa-h8-fNt"/>
                         <outlet property="Exp_date" destination="1on-VU-Ggf" id="Zx0-K8-W5e"/>
                         <outlet property="Notes" destination="zrK-LZ-HET" id="VgC-ui-5Nc"/>
                         <outlet property="Product_Name" destination="sV4-OO-RPG" id="Z9p-TO-PFF"/>
@@ -481,11 +489,11 @@
                                     <segue destination="0pK-r0-oJA" kind="show" id="O2A-nG-l7e"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3m8-c0-7e2">
-                                <rect key="frame" x="191" y="524" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXy-nO-fgT">
+                                <rect key="frame" x="187" y="530" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="sKH-4D-gCv" kind="show" id="Bo1-n0-AnH"/>
+                                    <segue destination="sKH-4D-gCv" kind="show" id="cFN-9k-EAg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -543,6 +551,6 @@
         <image name="Image" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bo1-n0-AnH"/>
+        <segue reference="gqw-Ke-fHz"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -17,13 +17,16 @@
 		52B8335D1D450F5700D54EB0 /* ListCoupon.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B8335C1D450F5700D54EB0 /* ListCoupon.m */; };
 		52D730771D3DC7C0005CC5F1 /* Coupon.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D730761D3DC7C0005CC5F1 /* Coupon.m */; };
 		52DBD00C1D5773BD00977741 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DBD00B1D5773BD00977741 /* WelcomeViewController.m */; };
-		52DBD00F1D57772600977741 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DBD00E1D57772600977741 /* ViewController.m */; };
 		52DBF4F71D347D5D00D6D8FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DBF4F61D347D5D00D6D8FA /* main.m */; };
 		52DBF4FA1D347D5D00D6D8FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DBF4F91D347D5D00D6D8FA /* AppDelegate.m */; };
 		52DBF5001D347D5D00D6D8FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DBF4FE1D347D5D00D6D8FA /* Main.storyboard */; };
 		52DBF5031D347D5D00D6D8FA /* CouponME_.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52DBF5011D347D5D00D6D8FA /* CouponME_.xcdatamodeld */; };
 		52DBF5051D347D5D00D6D8FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52DBF5041D347D5D00D6D8FA /* Assets.xcassets */; };
 		52DBF5081D347D5D00D6D8FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DBF5061D347D5D00D6D8FA /* LaunchScreen.storyboard */; };
+		52E18FE51D629EE20062F2C3 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E18FE41D629EE20062F2C3 /* CoreVideo.framework */; };
+		52E18FE71D629EED0062F2C3 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E18FE61D629EED0062F2C3 /* CoreMedia.framework */; };
+		52E18FE91D629EF90062F2C3 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E18FE81D629EF90062F2C3 /* ImageIO.framework */; };
+		52F279BC1D60DB3200C47FCE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F279BB1D60DB3200C47FCE /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +49,6 @@
 		52D730761D3DC7C0005CC5F1 /* Coupon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coupon.m; sourceTree = "<group>"; };
 		52DBD00A1D5773BD00977741 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		52DBD00B1D5773BD00977741 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
-		52DBD00D1D57772600977741 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../../../../.Trash/ViewController.h; sourceTree = "<group>"; };
-		52DBD00E1D57772600977741 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../../../../.Trash/ViewController.m; sourceTree = "<group>"; };
 		52DBF4F21D347D5D00D6D8FA /* CouponME!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CouponME!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52DBF4F61D347D5D00D6D8FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		52DBF4F81D347D5D00D6D8FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,6 +58,11 @@
 		52DBF5041D347D5D00D6D8FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52DBF5071D347D5D00D6D8FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52DBF5091D347D5D00D6D8FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52E18FE41D629EE20062F2C3 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		52E18FE61D629EED0062F2C3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		52E18FE81D629EF90062F2C3 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		52F279BA1D60DB3200C47FCE /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		52F279BB1D60DB3200C47FCE /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52E18FE91D629EF90062F2C3 /* ImageIO.framework in Frameworks */,
+				52E18FE71D629EED0062F2C3 /* CoreMedia.framework in Frameworks */,
+				52E18FE51D629EE20062F2C3 /* CoreVideo.framework in Frameworks */,
 				527E20771D51961300DBF542 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +83,11 @@
 		52DBF4E91D347D5D00D6D8FA = {
 			isa = PBXGroup;
 			children = (
+				52E18FE81D629EF90062F2C3 /* ImageIO.framework */,
+				52E18FE61D629EED0062F2C3 /* CoreMedia.framework */,
+				52E18FE41D629EE20062F2C3 /* CoreVideo.framework */,
+				52F279BA1D60DB3200C47FCE /* ViewController.h */,
+				52F279BB1D60DB3200C47FCE /* ViewController.m */,
 				520BC6C51D5401CD00BAC51C /* Savings+CoreDataProperties.h */,
 				520BC6C61D5401CD00BAC51C /* Savings+CoreDataProperties.m */,
 				520BC6C71D5401CD00BAC51C /* Savings.h */,
@@ -112,8 +126,6 @@
 				52DBF4FE1D347D5D00D6D8FA /* Main.storyboard */,
 				52DBD00A1D5773BD00977741 /* WelcomeViewController.h */,
 				52DBD00B1D5773BD00977741 /* WelcomeViewController.m */,
-				52DBD00D1D57772600977741 /* ViewController.h */,
-				52DBD00E1D57772600977741 /* ViewController.m */,
 				52DBF5041D347D5D00D6D8FA /* Assets.xcassets */,
 				52DBF5061D347D5D00D6D8FA /* LaunchScreen.storyboard */,
 				52DBF5091D347D5D00D6D8FA /* Info.plist */,
@@ -208,7 +220,7 @@
 				521FFA281D38776C00A9D211 /* ScanClass.m in Sources */,
 				520BC6CA1D5401CD00BAC51C /* Savings.m in Sources */,
 				520BC6C91D5401CD00BAC51C /* Savings+CoreDataProperties.m in Sources */,
-				52DBD00F1D57772600977741 /* ViewController.m in Sources */,
+				52F279BC1D60DB3200C47FCE /* ViewController.m in Sources */,
 				52DBF4FA1D347D5D00D6D8FA /* AppDelegate.m in Sources */,
 				52D730771D3DC7C0005CC5F1 /* Coupon.m in Sources */,
 				52DBF4F71D347D5D00D6D8FA /* main.m in Sources */,

@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *quant;
 @property (strong, nonatomic) IBOutlet UITextField *Notes;
 @property (strong, nonatomic) IBOutlet UIImageView *Coupon_Pic;
+
 @property  BOOL newdata;
 @property UIDatePicker *pickerDate;
 @property (nonatomic, strong) CAGradientLayer *gradientLayer;
@@ -33,39 +34,56 @@
 
 @implementation Coupon
 - (IBAction)Save_Coupon:(id)sender {
-  
+    NSLog(@"FUCK THIS ");
     if (self.newdata==YES) {
-        Coupon_Data *current_Coupon =[NSEntityDescription insertNewObjectForEntityForName:@"Coupon_Data" inManagedObjectContext:self.context];
-        
-        
-        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"yyyy-MM-dd"];
-        NSDate *date = [dateFormat dateFromString:self.Exp_date.text];
-        
-        NSDecimalNumber *cow = [NSDecimalNumber decimalNumberWithString:self.value.text];
-        
         NSInteger a=[self.quant.text integerValue];
         NSNumber *myNum = @(a);
+       
         
+       
+        for (int i=0; i<a; i++) {
+            
+            
+           
+            Coupon_Data *current_Coupon =[NSEntityDescription insertNewObjectForEntityForName:@"Coupon_Data" inManagedObjectContext:self.context];
+            NSLog(@"we got here");
+            NSLog(@"NUMBER OF COUPONS INSERTED IS %d",i);
+            
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"yyyy-MM-dd"];
+            NSDate *date = [dateFormat dateFromString:self.Exp_date.text];
+            
+            NSDecimalNumber *cow = [NSDecimalNumber decimalNumberWithString:self.value.text];
+            
+            
+            
+            NSNumber *convert=[NSNumber numberWithInt:i];
+            
+            [current_Coupon setUpc:self.Barcode.text];
+            [current_Coupon setExp_date:date];
+            [current_Coupon setValuess:cow];
+            [current_Coupon setProduct:self.Product_Name.text];
+            [current_Coupon setDisclaimer:self.Notes.text];
+            [current_Coupon setQuantity:myNum];
+            [current_Coupon setCategory:self.Categrory.text];
+            [current_Coupon setDuplicate:convert];
+            
+            
+           
+            
+          
+            
+        }
         
-        
-        [current_Coupon setUpc:self.Barcode.text];
-        [current_Coupon setExp_date:date];
-        [current_Coupon setValuess:cow];
-        [current_Coupon setProduct:self.Product_Name.text];
-        [current_Coupon setDisclaimer:self.Notes.text];
-        [current_Coupon setQuantity:myNum];
-        [current_Coupon setCategory:self.Categrory.text];
-        
-        
-        
-        
-        
+   
         NSError *error = nil;
         
         if ([self.context save:&error] == NO) {
             NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
+            NSLog(@"reached post part");
         }
+        
+        
         
         
         
@@ -92,32 +110,44 @@
     }
     else
     {
-    Coupon_Data *current_Coupon =[NSEntityDescription insertNewObjectForEntityForName:@"Coupon_Data" inManagedObjectContext:self.context];
-    
-    
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd"];
-    NSDate *date = [dateFormat dateFromString:self.Exp_date.text];
-    
-    NSDecimalNumber *cow = [NSDecimalNumber decimalNumberWithString:self.value.text];
-
-    NSInteger a=[self.quant.text integerValue];
-    NSNumber *myNum = @(a);
-    
-    
-    
-    [current_Coupon setUpc:self.Barcode.text];
-    [current_Coupon setExp_date:date];
-    [current_Coupon setValuess:cow];
-    [current_Coupon setProduct:self.Product_Name.text];
-    [current_Coupon setDisclaimer:self.Notes.text];
-    [current_Coupon setQuantity:myNum];
-    [current_Coupon setCategory:self.Categrory.text];
-    
-    
-    
-    
-    
+        NSInteger a=[self.quant.text integerValue];
+        NSNumber *myNum = @(a);
+        
+        
+        for (int i=0; i>a; i++) {
+            
+            
+            
+            Coupon_Data *current_Coupon =[NSEntityDescription insertNewObjectForEntityForName:@"Coupon_Data" inManagedObjectContext:self.context];
+            NSLog(@"we got here");
+            NSLog(@"NUMBER OF COUPONS INSERTED IS %d",i);
+            
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"yyyy-MM-dd"];
+            NSDate *date = [dateFormat dateFromString:self.Exp_date.text];
+            
+            NSDecimalNumber *cow = [NSDecimalNumber decimalNumberWithString:self.value.text];
+            
+            
+            
+            NSNumber *convert=[NSNumber numberWithInt:i];
+            
+            [current_Coupon setUpc:self.Barcode.text];
+            [current_Coupon setExp_date:date];
+            [current_Coupon setValuess:cow];
+            [current_Coupon setProduct:self.Product_Name.text];
+            [current_Coupon setDisclaimer:self.Notes.text];
+            [current_Coupon setQuantity:myNum];
+            [current_Coupon setCategory:self.Categrory.text];
+            [current_Coupon setDuplicate:convert];
+            
+            
+            
+            NSLog(@"DID I GET HERE ");
+            
+            
+        }
+        
     NSError *error = nil;
     
     if ([self.context save:&error] == NO) {
@@ -132,6 +162,8 @@
     
 }
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -140,7 +172,7 @@
     [self.view.layer insertSublayer:self.gradientLayer atIndex:0];
     self.Save.layer.cornerRadius=20;
     
-    
+    self.Coupon_Pic.image=self.coupon_image;
     
     
     self.categories=[[NSArray alloc]initWithObjects:@"Baby",@"Baking",@"Breads",@"Breakfast",@"Canned / Jarred Food",@"Cleaning Supplies",@"Condiments",@"Dairy / Refrigerated",@"Dried Goods",@"Fresh Food", @"Frozen Goods", @"Household Goods", @"Laundry Supplies", @"Medical", @"Paper Goods", @"Personal Care: Dental",@"Personal Care: Cosmetics / Makeup", @"Personal Care: Hair Care", @"Personal Care: Miscellaneous", @"Pets", @"Snacks", @"Miscellaneous",   nil];
