@@ -155,9 +155,10 @@
     
     
 }
+#pragma Mark- Take Photo
 -(void)addpicture{
     
-    
+    //add another connection for taking picture of coupon to set as coupon pic
     AVCaptureConnection *videoConnection = nil;
     for (AVCaptureConnection *connection in self.stillImageOutput.connections) {
         for (AVCaptureInputPort *port in [connection inputPorts]) {
@@ -180,6 +181,8 @@
     }];
     
 }
+#pragma Mark- Post Data/Parse JSON
+
 -(void)post{
     
     [self.Spinner startAnimating];
@@ -198,6 +201,7 @@
     NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
         if ([data length]>0) {
+            //sanity check to see if data was returned 
             self.retString = [NSString stringWithUTF8String:[data bytes]];
             NSError *parseError = nil;
             self.dictonary=nil;

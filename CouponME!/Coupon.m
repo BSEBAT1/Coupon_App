@@ -31,7 +31,7 @@
 
 
 @end
-
+#pragma mark-Saving Coupon Object
 @implementation Coupon
 - (IBAction)Save_Coupon:(id)sender {
     NSLog(@"FUCK THIS ");
@@ -40,7 +40,7 @@
         NSNumber *myNum = @(a);
        
         
-       
+       //insert multiple coupon obj
         for (int i=0; i<a; i++) {
             
             
@@ -113,6 +113,7 @@
     }
     else
     {
+        //dont send coupon obj to DB if we already have it
         NSInteger a=[self.quant.text integerValue];
         NSNumber *myNum = @(a);
         
@@ -167,7 +168,8 @@
 }
 
 
-
+#pragma mark-Setup Gradient 
+#pragma mark-Detail/Save
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -275,44 +277,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
-//    if (theTextField == self.Notes) {
+
         [theTextField resignFirstResponder];
-//    }
-//    else if (theTextField==self.Barcode){
-//        [theTextField resignFirstResponder];
-//        
-//    }
-//    else if (theTextField==self.quant){
-//        [theTextField resignFirstResponder];
-//        
-//    }
-//    else if (theTextField==self.Exp_date){
-//        [theTextField resignFirstResponder];
-//        
-//    }
-//    else if (theTextField==self.Product_Name){
-//        [theTextField resignFirstResponder];
-//        
-//    }
-//    else if (theTextField==self.value){
-//        [theTextField resignFirstResponder];
-//        
-//    }
     
     return YES;
 }
 
+#pragma mark-Setup Detail
 -(void)detailview{
     
     self.Save.hidden=YES;
@@ -352,6 +326,7 @@
     self.value.enabled=NO;
 }
 
+#pragma mark-PickerViewDelegate
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
 }
@@ -371,6 +346,7 @@
     
 }
 
+
 - (void)dateChanged:(id)sender
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -387,6 +363,7 @@
     [super viewDidLayoutSubviews];
     self.gradientLayer.frame = self.view.bounds;
 }
+#pragma mark-TextView Delegate
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range
  replacementText:(NSString *)text
 {
@@ -400,6 +377,9 @@
     // For any other character return TRUE so that the text gets added to the view
     return YES;
 }
+
+#pragma Mark-Fix Image
+
 - (UIImage*)rotateUIImage:(UIImage*)sourceImage clockwise:(BOOL)clockwise
 {
     CGSize size = sourceImage.size;
