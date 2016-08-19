@@ -18,7 +18,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *Categrory;
 @property (strong, nonatomic) IBOutlet UITextField *value;
 @property (strong, nonatomic) IBOutlet UITextField *quant;
-@property (strong, nonatomic) IBOutlet UITextField *Notes;
+@property (strong, nonatomic) IBOutlet UITextView *Notes;
 @property (strong, nonatomic) IBOutlet UIImageView *Coupon_Pic;
 
 @property  BOOL newdata;
@@ -55,6 +55,7 @@
             
             NSDecimalNumber *cow = [NSDecimalNumber decimalNumberWithString:self.value.text];
             
+            NSData *imageData = UIImagePNGRepresentation(self.coupon_image);
             
             
             NSNumber *convert=[NSNumber numberWithInt:i];
@@ -67,6 +68,8 @@
             [current_Coupon setQuantity:myNum];
             [current_Coupon setCategory:self.Categrory.text];
             [current_Coupon setDuplicate:convert];
+            [current_Coupon setImg_location:imageData];
+            
             
             
            
@@ -114,7 +117,7 @@
         NSNumber *myNum = @(a);
         
         
-        for (int i=0; i>a; i++) {
+        for (int i=0; i<a; i++) {
             
             
             
@@ -131,6 +134,7 @@
             
             
             NSNumber *convert=[NSNumber numberWithInt:i];
+            NSData *imageData = UIImagePNGRepresentation(self.coupon_image);
             
             [current_Coupon setUpc:self.Barcode.text];
             [current_Coupon setExp_date:date];
@@ -140,7 +144,7 @@
             [current_Coupon setQuantity:myNum];
             [current_Coupon setCategory:self.Categrory.text];
             [current_Coupon setDuplicate:convert];
-            
+            [current_Coupon setImg_location:imageData];
             
             
             NSLog(@"DID I GET HERE ");
@@ -173,6 +177,8 @@
     self.Save.layer.cornerRadius=20;
     
     self.Coupon_Pic.image=self.coupon_image;
+    self.Notes.delegate=self;
+    
     
     
     self.categories=[[NSArray alloc]initWithObjects:@"Baby",@"Baking",@"Breads",@"Breakfast",@"Canned / Jarred Food",@"Cleaning Supplies",@"Condiments",@"Dairy / Refrigerated",@"Dried Goods",@"Fresh Food", @"Frozen Goods", @"Household Goods", @"Laundry Supplies", @"Medical", @"Paper Goods", @"Personal Care: Dental",@"Personal Care: Cosmetics / Makeup", @"Personal Care: Hair Care", @"Personal Care: Miscellaneous", @"Pets", @"Snacks", @"Miscellaneous",   nil];
@@ -321,6 +327,8 @@
     NSString *int_to_string = [[self.current_detail quantity]stringValue];
     NSString *double_to_string=[[self.current_detail valuess]stringValue];
     
+    UIImage *coupon_image = [UIImage imageWithData:[self.current_detail img_location]];
+    
     self.Barcode.text=[self.current_detail upc];
     self.Exp_date.text=stringFromDate;
     self.Product_Name.text=[self.current_detail product];
@@ -328,13 +336,19 @@
     self.quant.text=int_to_string;
     self.Notes.text=[self.current_detail disclaimer];
     self.value.text=double_to_string;
+    
+  
+    
+    
+    self.Coupon_Pic.image=coupon_image;
+    
    
     self.Barcode.enabled=NO;
     self.Exp_date.enabled=NO;
     self.Product_Name.enabled=NO;
     self.Categrory.enabled=NO;
     self.quant.enabled=NO;
-    self.Notes.enabled=NO;
+    self.Notes.editable=NO;
     self.value.enabled=NO;
 }
 
@@ -372,6 +386,29 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     self.gradientLayer.frame = self.view.bounds;
+}
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range
+ replacementText:(NSString *)text
+{
+    
+    if ([text isEqualToString:@"\n"]) {
+        
+        [textView resignFirstResponder];
+        // Return FALSE so that the final '\n' character doesn't get added
+        return NO;
+    }
+    // For any other character return TRUE so that the text gets added to the view
+    return YES;
+}
+- (UIImage*)rotateUIImage:(UIImage*)sourceImage clockwise:(BOOL)clockwise
+{
+    CGSize size = sourceImage.size;
+    UIGraphicsBeginImageContext(CGSizeMake(size.height, size.width));
+    [[UIImage imageWithCGImage:[sourceImage CGImage] scale:1.0 orientation:clockwise ? UIImageOrientationRight : UIImageOrientationLeft] drawInRect:CGRectMake(0,0,size.height ,size.width)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 
 @end

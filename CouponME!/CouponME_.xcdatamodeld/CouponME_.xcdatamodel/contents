@@ -5,7 +5,7 @@
         <attribute name="disclaimer" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="duplicate" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="exp_date" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="img_location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="img_location" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="product" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="upc" optional="YES" attributeType="String" syncable="YES"/>
